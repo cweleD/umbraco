@@ -11,36 +11,38 @@
 		<div> 
 			<div>
 				<div class="container">
-					<div class="card-holder">
-						@foreach (var cardSlide in cardSlides) {
-							var slides = cardSlide.Content;
-							var slide = slides.Value<BlockListModel>("cardSliderPicker");
+					<div class="simple-swiper-container">
+						<div class="swiper-wrapper">
+							@foreach (var cardSlide in cardSlides) {
+								var slides = cardSlide.Content;
+								var slide = slides.Value<BlockListModel>("cardSliderPicker");
 
-							if (slide != null && slide.Count > 0) {
-								foreach(var slideItem in slide) {
-									var content = slideItem.Content;
-									var title = content.Value("title");
-									var copy = content.Value("copy");
-									var img = content.Value<IPublishedContent>("image");
-									var tag = content.Value<IPublishedContent>("tag");
-									var label = content.Value("label");
+								if (slide != null && slide.Count > 0) {
+									foreach(var slideItem in slide) {
+										var content = slideItem.Content;
+										var title = content.Value("title");
+										var copy = content.Value("copy");
+										var img = content.Value<IPublishedContent>("image");
+										var tag = content.Value<IPublishedContent>("tag");
+										var label = content.Value("label");
 
-									<div class="card">
-										@if (img != null) {
-											<img src="@img.Url()" class="card-img" alt="@title">
-										}
-										<div class="card-img-overlay">
-											<div class="card-content">
-												<p>@title</p>
-												<h3>@copy</h3>
-												<span>@label</span>
-											</div>
-											<div class="new-badge">@tag.Name</div>
+										<div class="card swiper-slide">
+											@if (img != null) {
+												<img src="@img.Url()" class="card-img" alt="@title">
+											}
+											@*<div class="card-img-overlay">
+												<div class="card-content">
+													<p>@title</p>
+													<h3>@copy</h3>
+													<span>@label</span>
+												</div>
+												<div class="new-badge">@tag.Name</div>
+											</div> *@
 										</div>
-									</div>
+									}
 								}
 							}
-						}
+						</div>
 					</div>
 				</div>
 			</div>

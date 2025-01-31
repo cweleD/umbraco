@@ -40,46 +40,46 @@
         </div>
 
         <div class="results-section">
-    <div class="container">
-        <div class="row">
-            <h3>@firstTab?.Name</h3>
-        </div>
-        <div class="row">
-            <div class="card-holder">
-                <div class="swiper-results-container">
-                    <div class="swiper-wrapper">
-                        @foreach (var searchableItem in searchableItems)
-                        {
-                            var item = searchableItem.Content;
-                            var searchItem = item.Value<BlockListModel>("cardPicker");
-
-                            if (searchItem != null && searchItem.Count > 0)
-                            {
-                                foreach (var searchCard in searchItem)
+            <div class="container">
+                <div class="row">
+                    <h3>@firstTab?.Name</h3>
+                </div>
+                <div class="row">
+                    <div class="card-holder">
+                        <div class="swiper-results-container">
+                            <div class="swiper-wrapper">
+                                @foreach (var searchableItem in searchableItems)
                                 {
-                                    var results = searchCard.Content;
-                                    var resultsImg = results.Value<IPublishedContent>("image");
-                                    var tag = results.Value<IPublishedContent>("tag");
+                                    var item = searchableItem.Content;
+                                    var searchItem = item.Value<BlockListModel>("cardPicker");
 
-                                    <div class="card swiper-slide" data-name="@tag.Id" data-category="@tag.Id">
-                                        @if (resultsImg != null)
+                                    if (searchItem != null && searchItem.Count > 0)
+                                    {
+                                        foreach (var searchCard in searchItem)
                                         {
-                                            <img src="@resultsImg.Url()" class="card-img" alt="@results.Value("title")" />
-                                        }
-                                        <div class="card-img-overlay">
-                                            <p class="game-title">@results.Value("title")</p>
-                                        </div>
-                                    </div>
-                                }
-                            }
-                        }
-                    </div>
+                                            var results = searchCard.Content;
+                                            var resultsImg = results.Value<IPublishedContent>("image");
+                                            var tag = results.Value<IPublishedContent>("tag");
 
+                                            <div class="card swiper-slide" data-name="@tag.Id" data-category="@tag.Id">
+                                                @if (resultsImg != null)
+                                                {
+                                                    <img src="@resultsImg.Url()" class="card-img" alt="@results.Value("title")" />
+                                                }
+                                                <div class="card-img-overlay">
+                                                    <p class="game-title">@results.Value("title")</p>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                }
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
         
     }

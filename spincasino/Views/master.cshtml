@@ -28,7 +28,42 @@
 	<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
- const swiperMain = new Swiper('.swiper-container', {
+
+    const swiperResults = new Swiper('.swiper-results-container', {
+        loop: true,
+        slidesPerView: 5,
+        spaceBetween: 10,
+        centeredSlides: true,
+        grabCursor: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+
+
+    const swiperSimple = new Swiper('.simple-swiper-container', {
+        loop: true,
+        slidesPerView: 5,
+        spaceBetween: 10,
+        centeredSlides: true,
+        grabCursor: true,
+        loopFillGroupWithBlank: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+
+    const swiperMain = new Swiper('.swiper-container', {
         loop: true,
         slidesPerView: 3,
         centeredSlides: true,
@@ -56,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
     });
 
-    const tabs = document.querySelectorAll('.tabs-container .swiper-slide');
+    const tabs = document.querySelectorAll('.tabs-slide');
     const tabContents = document.querySelectorAll('.tab-content');
 
     // Ensure at least one tab exists before setting active
@@ -112,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var searchTerm = document.getElementById("gameSearch")?.value.trim().toLowerCase() || "";
         var selectedCategory = document.getElementById("gameProviders")?.value || "all";
         var activeTab = document.querySelector(".tab-button.active")?.getAttribute("data-category") || "all";
-        var cards = document.querySelectorAll(".card");
+        var cards = document.querySelectorAll(".results-section .card");
 
         cards.forEach(function (card) {
             var cardCategory = card.getAttribute("data-category")?.toLowerCase() || "";
@@ -124,6 +159,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
             card.style.display = matchesSearch && (matchesDropdown || matchesTab) ? "block" : "none";
         });
+            // Ensure Swiper updates after filtering
+    if (typeof swiperResults !== "undefined") {
+        swiperResults.update();
+    }
+
     }
 
     document.getElementById("gameSearch")?.addEventListener("input", applyFilters);

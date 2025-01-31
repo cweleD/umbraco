@@ -49,7 +49,7 @@
     position: relative;
 
   .swiper-slide {
-    width: auto; 
+    width: auto !important; 
     flex-shrink: 0;
     }
 }

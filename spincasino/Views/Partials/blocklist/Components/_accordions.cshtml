@@ -14,7 +14,7 @@
             <div class="tabs-container">
                 <div class="container">
                     <div class="tabs-swiper">
-                        <div class="swiper-wrapper">
+                        <div class="swiper-wrapper swiper-tabs-wrapper">
                             @foreach(var accordionsTab in accordionsTabs) {
                                 var accordionTab = accordionsTab.Content;
                                 var addAccordion = accordionTab.Value<BlockListModel>("addAccordion");
@@ -24,7 +24,7 @@
 										count++;
                                         var accordTabs = addedAccordion.Content;
                                         var tab = accordTabs.Value("tab");
-                                        <div class="swiper-slide" data-tab="tab-@count">@tab</div>
+                                        <div class="swiper-slide tabs-slide" data-tab="tab-@count">@tab</div>
                                     }
                                 }
                             }

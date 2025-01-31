@@ -376,36 +376,50 @@ a {
   margin-bottom: 1.5rem;
 }
 
+/*  Stack Card Styling  */
 .main-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
-
-.highlight-section {
+.main-container .highlight-section {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Two equal columns */
-  gap: 1rem; /* Spacing between items */
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
   max-width: 600px;
   margin: auto;
 }
-
-.highlight-card {
+.main-container .highlight-section .highlight-right {
+  display: flex;
+}
+.main-container .highlight-section .highlight-right .highlight-card {
+  display: flex;
+  flex-direction: column;
+}
+.main-container .highlight-section .highlight-left .highlight-card:first-child {
+  margin-bottom: 1rem;
+}
+.main-container .highlight-section .highlight-card {
   background: linear-gradient(to bottom right, #38b6ff, #ffcc00);
   border-radius: 10px;
   padding: 1rem;
   color: white;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   position: relative;
+  display: flex;
+  align-items: center;
 }
-
-.highlight-card img {
+.main-container .highlight-section .highlight-card.small .card-content {
+  font-size: 9px;
+}
+.main-container .highlight-section .highlight-card.small .card-content h3, .main-container .highlight-section .highlight-card.small .card-content .h3 {
+  font-size: 21px;
+}
+.main-container .highlight-section .highlight-card.small img {
+  max-width: 5.25rem;
   width: 100%;
+  height: auto;
   border-radius: 8px;
-}
-
-.card-content {
-  padding: 10px 0;
 }
 
 .new-badge {
@@ -446,28 +460,14 @@ a {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  background: linear-gradient(to right, #1abbb4, #1d6fa5);
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
-.game-card {
+.games-section .game-card {
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
+  padding: 0.5rem 1rem;
   border-bottom: 1px solid #fdfdfd;
-}
-
-.game-card p {
-  font-size: 16px;
-  margin: 0;
-}
-
-.game-card span {
-  font-size: 14px;
-  opacity: 0.8;
 }
 
 .casino-container {
@@ -511,6 +511,11 @@ a {
   text-transform: uppercase;
   font-family: "Bebas Neue", serif;
   padding: 0.5rem 0rem 1.5rem;
+}
+
+.simple-swiper-container {
+  overflow: auto !important;
+  padding: 8rem 0;
 }
 
 .search-bar {
@@ -880,7 +885,7 @@ a {
   position: relative;
 }
 .results-section .swiper-slide {
-  width: auto;
+  width: auto !important;
   flex-shrink: 0;
 }
 
