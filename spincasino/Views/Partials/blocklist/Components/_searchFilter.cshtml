@@ -1,0 +1,86 @@
+@using Umbraco.Cms.Core.Models
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPublishedContent>
+@using Umbraco.Cms.Core.Models.Blocks
+@{
+    var searchableItems = Model.Value<BlockListModel>("searchableItems");
+    var tabs = Model.Value<IEnumerable<IPublishedContent>>("tabs");
+    var firstTab = tabs?.FirstOrDefault();
+}
+
+@if (searchableItems != null && searchableItems.Count > 0)
+{
+    if (tabs != null && tabs.Any())
+    {
+        <div class="search-bar">
+            <img src="images/icons/menu/search.svg" class="search-icon" alt="search games" />
+            <input type="text" placeholder="Find your game" class="search-input" id="gameSearch" />
+            <img src="images/icons/category/filter.svg" alt="Game filter" class="filter" />
+
+            <div class="custom-select">
+                <select class="game-providers" id="gameProviders">
+                    @foreach (var tabItem in tabs)
+                    {
+                        <option value="@tabItem.Id">@tabItem.Name</option>
+                    }
+                </select>
+                <img src="images/icons/menu/errow.svg" alt="select game" class="select-filter" />
+            </div>
+        </div>
+
+        <div class="category-tabs">
+            @foreach (var tabItem in tabs)
+            {
+                var icon = tabItem.Value<IPublishedContent>("icon");
+                <div class="tab-button @(tabItem == firstTab ? "active" : "")" data-category="@tabItem.Id">
+                    <img src="@icon.Url()" alt="@tabItem.Name" class="tab-icon">
+                    <span> | </span>
+                    <span>@tabItem.Name</span>
+                </div>
+            }
+        </div>
+
+        <div class="results-section">
+    <div class="container">
+        <div class="row">
+            <h3>@firstTab?.Name</h3>
+        </div>
+        <div class="row">
+            <div class="card-holder">
+                <div class="swiper-results-container">
+                    <div class="swiper-wrapper">
+                        @foreach (var searchableItem in searchableItems)
+                        {
+                            var item = searchableItem.Content;
+                            var searchItem = item.Value<BlockListModel>("cardPicker");
+
+                            if (searchItem != null && searchItem.Count > 0)
+                            {
+                                foreach (var searchCard in searchItem)
+                                {
+                                    var results = searchCard.Content;
+                                    var resultsImg = results.Value<IPublishedContent>("image");
+                                    var tag = results.Value<IPublishedContent>("tag");
+
+                                    <div class="card swiper-slide" data-name="@tag.Id" data-category="@tag.Id">
+                                        @if (resultsImg != null)
+                                        {
+                                            <img src="@resultsImg.Url()" class="card-img" alt="@results.Value("title")" />
+                                        }
+                                        <div class="card-img-overlay">
+                                            <p class="game-title">@results.Value("title")</p>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        
+    }
+}

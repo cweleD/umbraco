@@ -1,0 +1,49 @@
+.tab-section {
+    padding: 5rem;
+
+    .tabs-container .tabs-swiper {
+        width: 100%;
+        margin-bottom: 20px; 
+        overflow: hidden;
+    }
+}
+ 
+
+.tabs-container .swiper-slide {
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    background-image: linear-gradient(#ffba00, #08A3D1);
+    border-radius: 5px;
+    display: inline-block; 
+    width: auto;
+}
+
+.tabs-container .swiper-slide-active {
+    background-color: #007bff;
+    color: white;
+}
+
+.tabs-container .accordion {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.tabs-container .accordion-header {
+    padding: 15px;
+    background-image: linear-gradient(#ffba00, #08A3D1);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.tabs-container .accordion-content {
+    display: none;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+}
+
+.tabs-container .accordion.active .accordion-content {
+    display: block;
+}

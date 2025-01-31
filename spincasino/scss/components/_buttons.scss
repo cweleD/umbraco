@@ -1,0 +1,80 @@
+.btn {
+    line-height: 1.40625rem;
+    font-family: "Poppins", serif;
+    border-radius: 1.5rem;
+    justify-content: center;
+    text-align: center;
+
+    &:not(.btn-lg) {
+        font-size: 0.9375rem;
+    }
+
+    &:not(.btn-lg, .pill) {
+        padding: .645rem 1.84rem;
+    }
+
+    &.btn_light {
+        color: #121627;
+        background-color: var(--white);
+    }
+
+    &.btn-primary {
+        color: #121627;
+        background-color: var(--primary);
+    }
+
+    &.btn-lg {
+        font-size: 1.125rem;
+        padding: 0.65rem 4.5rem;
+    }
+
+    &.pill {
+        color: #121627;
+        background-color: var(--primary);
+        display: inline-flex;
+        align-items: center;
+        padding-left: 1rem;
+        border-radius: .75rem;
+        
+        &.btn-full-primary span {
+            background-color: #1BA9CA;
+            color: var(--white);
+        }
+
+        &.btn-full-light span {
+            background-color: var(--white);
+            color: #121627;
+        }
+        span {
+            font-family: "Poppins", serif;
+            padding: .25rem 1rem;
+            border-top-right-radius: .75rem;
+            border-bottom-right-radius: .75rem;
+            margin-left: 1rem;
+        }
+    }
+
+    &.btn-gradient {
+        background: linear-gradient( #0054B7 , #08A3D1);
+        color: var(--white);
+    }
+    &.btn-outline {
+        background-color: #F5F5F5;
+        color: var(--dark_color);
+        border-radius: 7px;
+        -webkit-border-radius: 7px;
+        -moz-border-radius: 7px;
+        -ms-border-radius: 7px;
+        -o-border-radius: 7px;
+    }
+
+    &.btn-white {
+        background-color: var(--white);
+        color: var(--dark_color);
+    }
+}
+
+.link {
+    font-size: .625rem;
+    text-decoration: underline;
+}

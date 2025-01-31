@@ -1,0 +1,86 @@
+@using Umbraco.Cms.Core.Models
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPublishedContent>
+@using Umbraco.Cms.Core.Models.Blocks
+
+@{
+    var headerContent = Model.Value<BlockListModel>("content");
+}
+
+@if (headerContent != null && headerContent.Count > 0)
+{
+    <div class="headerContent">
+    @foreach (var content in headerContent)
+        {
+            var contentItem = content.Content;
+            var link = contentItem.Value<IEnumerable<Link>>("button");
+            var img = contentItem.Value<IPublishedContent>("image");
+            var labeledBtn = contentItem.Value<BlockListModel>("moreButtons");
+            var contentLink = contentItem.Value<BlockListModel>("link");
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row d-flex align-items-center">
+                        <div class="col-md-6 order-2 order-md-0">
+                            <div class="content">
+                                @contentItem.Value("content")
+                                @if (link != null && link.Any())
+                                {
+                                    var linkItem = link.FirstOrDefault();
+                                    <a href="@linkItem.Url" class="btn btn-primary btn-lg">@linkItem.Name</a>
+                                }
+                            </div>
+                        </div>
+                        @if (img != null)
+                        {
+                            <div class="col-md-6">
+                                <img src="@img.Url()" alt="@Model.Name" class="banner-image" />
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                @if (labeledBtn != null && labeledBtn.Count > 0)
+                {
+                    <div class="col-md-12">
+                        <div class="btn-holder d-flex justify-content-center">
+                            @foreach (var morebtn in labeledBtn)
+                            {
+                                var btnContent = morebtn.Content;
+                                var btnLink = btnContent.Value<IEnumerable<Link>>("link");
+                                var buttonLabel = btnContent.Value<string>("buttonLabel");
+                                var buttonClass = btnContent.Value<string>("class");
+                                @if (btnLink != null && btnLink.Any())
+                                {
+                                    var btnLinkitem = btnLink.FirstOrDefault();
+
+                                    <a href="@btnLinkitem.Url" class="btn @buttonClass">
+                                        @buttonLabel <span>@btnLinkitem.Name</span>
+                                    </a>
+                                }
+                            }
+                        </div>
+                    </div>
+                }
+                @if (contentLink != null && contentLink.Any())
+                {
+                    foreach (var linkitems in contentLink)
+                    {
+                        var linkitem = linkitems.Content;
+                        var item = linkitem.Value<IEnumerable<Link>>("link");
+
+                        if (item != null && item.Any())
+                        {
+                            var linkedItem = item.FirstOrDefault();
+
+                            <div class="col-md-12">
+                                <div class="d-flex justify-content-center">
+                                    <a href="@linkedItem.Url" class="@linkitem.Value("class")">@linkedItem.Name</a>
+                                </div>
+                            </div>
+                        }
+                    }
+                }
+            </div>
+        }
+    </div>
+}

@@ -1,0 +1,59 @@
+.banner {
+    background-image: linear-gradient(to bottom, #550093 -30%, #0058B8 100%, #08A3D1 100%);
+    padding-top: 10rem;
+
+    .content h1 {
+        position: relative;
+        text-align: center;
+
+        @media only screen and (min-width: 768px) {
+            text-align: left;
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: -1rem;
+            height: .375rem;
+            width: 3.75rem;
+            display: inline-block;
+            background-image: linear-gradient(to right, #08A0D0 , #FFD800);
+        }
+
+        + p {
+            font-family: "Bebas Neue", serif;
+            font-size: 2.1875rem;
+            line-height: 2.625rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            padding: 1rem 0 1.75rem;
+        }
+    }
+    .banner-image {
+        padding-top: 5rem;
+    }
+    .btn-holder {
+        gap: 2rem;
+        padding-bottom: 2rem;
+    }
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.results-section {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+
+  .swiper-slide {
+    width: auto; 
+    flex-shrink: 0;
+    }
+}
+
+body {
+    background-image: linear-gradient(to top, #550093 0%, #0058B8 100%, #08A3D1 100%);
+}

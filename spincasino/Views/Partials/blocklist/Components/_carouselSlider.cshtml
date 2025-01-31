@@ -1,0 +1,107 @@
+@using Umbraco.Cms.Core.Models
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPublishedContent>
+@using Umbraco.Cms.Core.Models.Blocks
+@{
+	var carouselSlides = Model.Value<BlockListModel>("content");
+}
+
+
+@{
+	if (carouselSlides != null && carouselSlides.Any())
+	{
+		<div class="carousel-section">
+			<div class="container">
+				<div class="carousel-container">
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							@foreach(var carouselSlider in carouselSlides) {
+								var carousel = carouselSlider.Content;
+								var slider = carousel.Value<BlockListModel>("carouselPicker");
+
+								if(slider != null && slider.Count > 0) {
+									@foreach(var slide in slider) {
+										var cardSlider = slide.Content;
+										var title = cardSlider.Value("title");
+										var copy = cardSlider.Value("copy");
+										var img = cardSlider.Value<IPublishedContent>("image");
+
+										<div class="swiper-slide">
+											@if(img != null) {
+												<div class="character-wrapper">
+													<div class="podium blue"></div>
+													<img src="@img.Url()" alt="@title" />
+												</div>
+											}
+											
+											<div class="jackpot-text">@title</div>
+											<div class="jackpot-amount">@copy</div>
+										</div>
+									}
+								}
+							}
+						</div>
+						@* Pagination *@
+						<div class="swiper-pagination"></div>
+						@* Navigation *@
+						<div class="swiper-button-next"></div>
+						<div class="swiper-button-prev"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	}
+}
+@*
+<div class="carousel-section">
+	<div class="container">
+		<div class="carousel-container">
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<!-- Slide 1 -->
+					<div class="swiper-slide">
+						<div class="character-wrapper">
+							<div class="podium blue"></div>
+							<img src="images/characters/character-cow.png" alt="Character 1" />
+						</div>
+						<div class="jackpot-text">Daily Jackpots</div>
+						<div class="jackpot-amount">€4,000,000</div>
+					</div>
+					<!-- Slide 2 -->
+					<div class="swiper-slide">
+						<div class="character-wrapper">
+							<div class="podium"></div>
+							<img src="images/characters/character-man.png" alt="Character 2" />
+						</div>
+						<div class="jackpot-text">Daily Jackpots</div>
+						<div class="jackpot-amount">€4,000,000</div>
+					</div>
+					<!-- Slide 3 -->
+					<div class="swiper-slide">
+						<div class="character-wrapper">
+							<div class="podium red"></div>
+							<img src="images/characters/character-lady.png" alt="Character 3" />
+						</div>
+						<div class="jackpot-text">Wow Pots</div>
+						<div class="jackpot-amount">€4,000,000</div>
+					</div>
+					<!-- Slide 4 -->
+					<div class="swiper-slide">
+						<div class="character-wrapper">
+							<div class="podium red"></div>
+							<img src="images/characters/character-chicken.png" alt="Character 3" />
+						</div>
+						<div class="jackpot-text">Wow Pots</div>
+						<div class="jackpot-amount">€4,000,000</div>
+					</div>
+				</div>
+				<!-- Pagination -->
+				<div class="swiper-pagination"></div>
+				<!-- Navigation -->
+				<div class="swiper-button-next"></div>
+				<div class="swiper-button-prev"></div>
+			</div>
+			<a href="#" class="all-jackpots-btn">All Jackpots</a>
+		</div>
+	</div>
+</div>
+*@

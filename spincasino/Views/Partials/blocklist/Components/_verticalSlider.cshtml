@@ -1,0 +1,43 @@
+@using Umbraco.Cms.Core.Models
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPublishedContent>
+@using Umbraco.Cms.Core.Models.Blocks
+@{
+	var vCards = Model.Value<BlockListModel>("content");
+}
+
+@{
+	if (vCards != null && vCards.Any())
+	{
+		
+		<div class="games-section">
+			@foreach (var vCard in vCards) {
+				var card = vCard.Content;
+				var usedCards = card.Value<BlockListModel>("verticalSliderpicker");
+				
+				if (usedCards != null && usedCards.Count > 0) {
+					foreach(var cardContent in usedCards) {
+						var content = cardContent.Content;
+						var title = content.Value("title");
+						var copy = content.Value("copy");
+						var img = content.Value<IPublishedContent>("image");
+						var tag = content.Value<IPublishedContent>("tag");
+
+						<div class="game-card">
+							<a href="">
+								@if (img != null) {
+									<div class="img-holder">
+										<img src="@img.Url()" class="card-image"/>
+									</div>
+								}
+								<div class="content-holder">
+									<h4>@title</h4>
+									<span>@copy</span>
+								</div>
+							</a>
+						</div>
+					}
+				}
+			}
+		</div>
+	}
+}

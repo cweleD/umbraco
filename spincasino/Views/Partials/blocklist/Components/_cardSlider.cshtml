@@ -1,0 +1,93 @@
+@using Umbraco.Cms.Core.Models
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPublishedContent>
+@using Umbraco.Cms.Core.Models.Blocks
+@{
+	var cardSlides = Model.Value<BlockListModel>("content");
+}
+
+@{
+	if (cardSlides != null && cardSlides.Any())
+	{
+		<div> 
+			<div>
+				<div class="container">
+					<div class="card-holder">
+						@foreach (var cardSlide in cardSlides) {
+							var slides = cardSlide.Content;
+							var slide = slides.Value<BlockListModel>("cardSliderPicker");
+
+							if (slide != null && slide.Count > 0) {
+								foreach(var slideItem in slide) {
+									var content = slideItem.Content;
+									var title = content.Value("title");
+									var copy = content.Value("copy");
+									var img = content.Value<IPublishedContent>("image");
+									var tag = content.Value<IPublishedContent>("tag");
+									var label = content.Value("label");
+
+									<div class="card">
+										@if (img != null) {
+											<img src="@img.Url()" class="card-img" alt="@title">
+										}
+										<div class="card-img-overlay">
+											<div class="card-content">
+												<p>@title</p>
+												<h3>@copy</h3>
+												<span>@label</span>
+											</div>
+											<div class="new-badge">@tag.Name</div>
+										</div>
+									</div>
+								}
+							}
+						}
+					</div>
+				</div>
+			</div>
+		</div>
+	}
+}
+
+@*
+<div> 
+	<div>
+		<div class="container">
+			<div class="card-holder">
+				<div class="card">
+					<img src="images/banner/card.svg" class="card-img" alt="...">
+					<div class="card-img-overlay">
+
+					</div>
+				</div>
+
+				<div class="card">
+					<img src="images/banner/card.svg" class="card-img" alt="...">
+					<div class="card-img-overlay">
+
+					</div>
+				</div>
+
+				<div class="card">
+					<img src="images/banner/card.svg" class="card-img" alt="...">
+					<div class="card-img-overlay">
+
+					</div>
+				</div>
+
+				<div class="card">
+					<img src="images/banner/card.svg" class="card-img" alt="...">
+					<div class="card-img-overlay">
+
+					</div>
+				</div>
+
+				<div class="card">
+					<img src="images/banner/card.svg" class="card-img" alt="...">
+					<div class="card-img-overlay">
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>*@

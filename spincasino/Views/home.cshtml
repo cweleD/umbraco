@@ -1,0 +1,31 @@
+﻿@using Umbraco.Cms.Core.Models.Blocks
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPublishedContent>
+@{
+	Layout = "master.cshtml";
+}
+
+@*@await Html.PartialAsync("HeroHeader", Model)*@
+<section class="banner">
+	<div class="container">
+		@await Html.PartialAsync("Partials/blocklist/Components/_heroHeader", Model)
+		@await Html.PartialAsync("Partials/blocklist/Components/_searchFilter.cshtml", Model)
+	</div>
+</section>
+
+
+<div class="casino-container">
+	<div class="container mx-auto">
+		<div class="main-container">
+			@await Html.PartialAsync("Partials/blocklist/Components/_stackSlider.cshtml", Model)
+			@await Html.PartialAsync("Partials/blocklist/Components/_verticalSlider.cshtml", Model)
+		</div>
+	</div>
+</div>
+
+@await Html.PartialAsync("Partials/blocklist/Components/_cardSlider.cshtml", Model)
+@await Html.PartialAsync("Partials/blocklist/Components/_twoColumnCard.cshtml", Model)
+@await Html.PartialAsync("Partials/blocklist/Components/_carouselSlider.cshtml", Model)
+@await Html.PartialAsync("Partials/blocklist/Components/_cardCta.cshtml", Model)
+@await Html.PartialAsync("Partials/blocklist/Components/_accordions.cshtml", Model)
+@await Html.PartialAsync("Partials/blocklist/Components/_richtext.cshtml", Model)

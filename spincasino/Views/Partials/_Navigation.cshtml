@@ -1,0 +1,111 @@
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Home>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    Layout = null;
+    var sublinks = Model.Value<IEnumerable<IPublishedContent>>("subLink");
+    var firstLink = sublinks.FirstOrDefault();
+}
+
+<header>
+    <nav>
+        <div class="nav-bar">
+            <div class="top_bar">
+                <span class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+                <a href="/" class="logo">Dream Spins <span>Casino</span></a>
+            </div>
+
+            <div class="menu-actions">
+                <img class="icon" src="images/icons/menu/search.svg" />
+                <img class="icon" src="images/icons/menu/promotion-menu.svg" />
+                <a href="#" class="btn btn_light d-none d-md-block">Sign Up</a>
+                <a href="#" class="log-in">Log In</a>
+            </div>
+        </div>
+    </nav>
+    <span class="nav-divider"></span>
+    @if (sublinks != null)
+    {
+        <div class="sub-menu">
+            <ul>
+                @foreach (var link in sublinks)
+                {
+                    var sideLink = link.HasValue("icon");
+
+                    var icon = link.Value<IPublishedContent>("icon");
+
+                    if (sideLink && icon != null)
+                    {
+                        <li class="@(link == firstLink ? "active" : "")">
+                            <img src="@icon.Url()" alt="@link.Name" class="icon" />
+                            <a href="#">@link.Name</a>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+    }
+
+    <div class="sub-nav">
+        <div class="user">
+            <img src="images/icons/menu/my-account.svg" />
+            <span>Welcome, Guest</span>
+        </div>
+
+        <div class="btn-sign-up"><a href="#" class="btn btn-gradient btn-lg">Sign Up</a></div>
+        <div class="btn-chat">
+            <img src="images/icons/menu/chat.svg" alt="chat-icon" />
+            <a href="#" class="btn btn-outline btn-lg">Chat to us</a>
+        </div>
+        <div class="top-menu">
+
+            @foreach (var link in Model.Children())
+            {
+                var icon = link.Value<IPublishedContent>("icon");
+                var activeIcon = link.Value<IPublishedContent>("activeIcon");
+                var isTopNav = link.Value<bool>("topNav");
+
+                if (icon != null && activeIcon != null && link.Children().Any())
+                {
+                    <div class="hs-dropdown">
+                        <img src="@activeIcon.Url()" class="selected_img" alt="@link.Name" />
+                        <img src="@icon.Url()" class="default_img" alt="@link.Name" />
+                        <span>@link.Name</span>
+                        <img src="images/icons/menu/errow.svg" class="dropdown-error" />
+                        <ul class="dropdown">
+                            <div class="close">
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <a href="#" class="btn btn-white">@(link.HasValue("title") ? link.Value("title") : link.Name)</a>
+                            @foreach (var dropdown in link.Children())
+                            {
+                                var dropdownImg = dropdown.Value<IPublishedContent>("icon");
+                                if (dropdownImg != null)
+                                {
+                                    <li>
+                                        <a href="@dropdown.Url()">
+                                            <img src="@dropdownImg.Url()" alt="@dropdown.Name" />
+                                            <span>@dropdown.Name</span>
+                                        </a>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                }
+                else if (icon != null && activeIcon != null)
+                {
+                    <a href="@link.Url()">
+                        <img src="@activeIcon.Url()" class="selected_img" alt="@link.Name" />
+                        <img src="@icon.Url()" class="default_img" alt="@link.Name" />
+                        <span>@link.Name</span>
+                    </a>
+                }
+            }
+        </div>
+</header>

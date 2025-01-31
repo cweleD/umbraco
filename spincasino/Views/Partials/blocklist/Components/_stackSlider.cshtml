@@ -1,0 +1,72 @@
+@using Umbraco.Cms.Core.Models
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPublishedContent>
+@using Umbraco.Cms.Core.Models.Blocks
+@{
+    var stackCards = Model.Value<BlockListModel>("content");
+    IPublishedElement? thirdContent = null; }
+	
+@if (stackCards != null && stackCards.Any())
+{
+    <div class="highlight-section">
+        <div class="highlight-left">
+            @foreach (var stackCard in stackCards)
+            {
+                var card = stackCard.Content;
+                var selectedCards = card.Value<BlockListModel>("stackCardPicker");
+
+                if (selectedCards != null && selectedCards.Count > 0)
+                {
+                    var firstTwoCards = selectedCards.Take(2);
+                    thirdContent = selectedCards.Skip(2).FirstOrDefault()?.Content; 
+
+                    foreach (var cardContent in firstTwoCards)
+                    {
+                        var content = cardContent.Content;
+                        var title = content.Value("title");
+                        var copy = content.Value("copy");
+                        var img = content.Value<IPublishedContent>("image");
+                        var tag = content.Value<IPublishedContent>("tag");
+                        var label = content.Value("label");
+
+                        <div class="highlight-card small">
+                            @if (img != null)
+                            {
+                                <img src="@img.Url()" alt="@title" />
+                            }
+                            <div class="card-content">
+                                <p>@title</p>
+                                <h3>@copy</h3>
+                                <span>@label</span>
+                            </div>
+                            <div class="new-badge">@tag?.Name</div>
+                        </div>
+                    }
+                }
+            }
+        </div>
+
+        <div class="highlight-right">
+            @if (thirdContent != null)
+            {
+                var thirdTitle = thirdContent.Value("title");
+                var thirdCopy = thirdContent.Value("copy");
+                var thirdImg = thirdContent.Value<IPublishedContent>("image");
+                var thirdTag = thirdContent.Value<IPublishedContent>("tag");
+                var thirdLabel = thirdContent.Value("label");
+
+                <div class="highlight-card small">
+                    @if (thirdImg != null)
+                    {
+                        <img src="@thirdImg.Url()" alt="@thirdTitle" />
+                    }
+                    <div class="card-content">
+                        <p>@thirdTitle</p>
+                        <h3>@thirdCopy</h3>
+                        <span>@thirdLabel</span>
+                    </div>
+                    <div class="new-badge">@thirdTag?.Name</div>
+                </div>
+            }
+        </div>
+    </div>
+}
