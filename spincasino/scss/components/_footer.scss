@@ -11,6 +11,10 @@ footer {
         p {
             font-size: 38px;
             line-height: 38px;
+            
+            @media only screen and (max-width: 768px) {
+
+            }
 
             span {
                 color: var(--primary);
@@ -29,31 +33,44 @@ footer {
     }
 
     .footer_links {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
         font-size: 11px;
         text-transform: uppercase;
         padding: 2rem 0;
-        
+        text-align: center;
+
+            @media only screen and (min-width: 768px) {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+            }
+
         li {
             position: relative;
             pointer-events: all;
             cursor: pointer;
+            padding: .125rem 0;
 
-            &::after {
-                content: "|";
-                position: absolute;
-                right: -50%;
-                opacity: .20;
-            }
+            @media only screen and (min-width: 768px) {
+                width: 100%;
+                padding: 0;
+                text-align: center;
 
-            &:last-child {
                 &::after {
-                    display: none;
+                    content: "|";
+                    position: absolute;
+                    right: -50%;
+                    opacity: .20;
                 }
-            }
+    
+                &:last-child {
+                    &::after {
+                        display: none;
+                    }
+                }
+            } 
+
+            
 
             &:is(:hover, :focus, :active) {
                 color: var(--primary);
@@ -79,6 +96,13 @@ footer {
         font-size: 13px;
         align-items: center;
         padding: 1rem 0;
+
+        @media only screen and (max-width: 767px) {
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center;
+            gap: 1rem;
+        }
 
         span:last-child {
             font-size: 18px;

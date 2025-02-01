@@ -13,12 +13,21 @@ h1, .h1 {
     font-family: "Inter", serif;
     font-size: 3.625rem;
     line-height: 3.625rem;
+    margin-bottom: 2.5rem;
+    @media only screen and (max-width: 767px) {
+        font-size: 3rem;
+    }
 }
 
 h2, .h2 {
     font-family: "Inter", serif;
     font-size: 3.625rem;
     line-height: 3.625rem;
+    margin-bottom: 2.5rem;
+
+    @media only screen and (max-width: 767px) {
+        font-size: 3rem;
+    }
 }
 
 h3, .h3 {

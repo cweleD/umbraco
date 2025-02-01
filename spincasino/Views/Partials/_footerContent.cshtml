@@ -7,38 +7,40 @@
 }
 
 <div class="container">
-<div class="row">
-<div class="col-12">
-<div class="social_icons_holder">
-    <p>Dream Spins <span class="highlight">Casino<span></p>
-    <div class="social_icons">
-        <span class="facebook"></span>
-        <span class="twitter"></span>
-        <span class="linkedIn"></span>
+    <div class="row">
+        <div class="col-12">
+            <div>
+                <div class="social_icons_holder">
+                    <p>Dream Spins <span class="highlight">Casino<span></p>
+                    <div class="social_icons">
+                        <span class="facebook"></span>
+                        <span class="twitter"></span>
+                        <span class="linkedIn"></span>
+                    </div>
+                </div>
+
+                @if (footerLinks != null)
+                {
+                    <ul class="footer_links">
+                        @foreach (var linkItem in footerLinks)
+                        {
+                            <li>
+                                <a href="@linkItem.Url" target="@(linkItem.Target ?? "_self")">
+                                    @linkItem.Name
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                }
+
+                @await Html.PartialAsync("blocklist/Components/_footerLogos.cshtml", Model)
+                <div class="copyright">
+                    <span>© 2021 Jackpot Lounge All rights reserved. Jackpot Lounge is a brand managed by White Hat Gaming Limited</span>
+                    <span>PLAY <br/>RESPONSIBLY</span>
+                </div>
+                @await Html.PartialAsync("blocklist/Components/_footerCards.cshtml", Model)
+            </div>
+        </div>
     </div>
-</div>
-
-@if (footerLinks != null)
-{
-    <ul class="footer_links">
-        @foreach (var linkItem in footerLinks)
-        {
-            <li>
-                <a href="@linkItem.Url" target="@(linkItem.Target ?? "_self")">
-                    @linkItem.Name
-                </a>
-            </li>
-        }
-    </ul>
-}
-
-@await Html.PartialAsync("blocklist/Components/_footerLogos.cshtml", Model)
-<div class="copyright">
-    <span>© 2021 Jackpot Lounge All rights reserved. Jackpot Lounge is a brand managed by White Hat Gaming Limited</span>
-    <span>PLAY <br/>RESPONSIBLY</span>
-</div>
-@await Html.PartialAsync("blocklist/Components/_footerCards.cshtml", Model)
-</div>
-</div>
 </div>
 <div class="footer_banner"></div>

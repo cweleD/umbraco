@@ -8,7 +8,7 @@
 
 @if (addFooterCard != null && addFooterCard.Any())
 {
-    <div class="footer_cards">
+    <div class="footer_cards d-none d-lg-flex">
     @foreach (var footerItem in addFooterCard)
     {
         var logoContent = footerItem.Content;
