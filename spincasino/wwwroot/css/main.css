@@ -657,7 +657,7 @@ a {
 .two_column_card .card img {
   display: none;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 992px) {
   .two_column_card .card img {
     display: block;
     max-width: 15rem;
