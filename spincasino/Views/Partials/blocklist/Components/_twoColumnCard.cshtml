@@ -19,11 +19,12 @@
 							var card = cards.Content;
 							var img = card.Value<IPublishedContent>("image");
 							var tag = card.Value<IPublishedContent>("tag");
+							var tagImg = tag.Value<IPublishedContent>("icon");
 							
 							
 							<div class="col-md-6">
 								<div class="card">
-									<span class="new-badge">@card.Value("label")</span>
+									<span class="new-badge"><img src="@tagImg.Url()" class="icon" />@card.Value("label")</span>
 									<div class="card-content">
 										<h3>@card.Value("title")</h3>
 										@Html.Raw(card.Value("copy"))

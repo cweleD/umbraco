@@ -433,13 +433,14 @@ a {
 .main-container .highlight-section .highlight-card {
   background: linear-gradient(to bottom right, #38b6ff, #ffcc00);
   border-radius: 10px;
-  padding: 1rem;
+  padding: 0 1rem;
   color: white;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   position: relative;
   display: flex;
   align-items: center;
   gap: 1rem;
+  width: 100%;
 }
 .main-container .highlight-section .highlight-card.small .card-content {
   font-size: 9px;
@@ -549,7 +550,7 @@ a {
 
 .simple-swiper-container {
   overflow: auto !important;
-  padding: 8rem 0;
+  padding: 2rem 0 8rem;
 }
 .simple-swiper-container h3 {
   padding: 2rem 0;
@@ -628,6 +629,7 @@ a {
   background: linear-gradient(180deg, #0054B7, #08A3D1);
 }
 .two_column_card .card .new-badge {
+  display: flex;
   top: 0;
   color: #121627;
   text-transform: uppercase;
@@ -638,6 +640,11 @@ a {
   border-bottom-right-radius: 0;
   border-top-left-radius: 0;
   padding: 0.5rem 1.5rem;
+}
+.two_column_card .card .new-badge .icon {
+  display: inline-block;
+  position: relative;
+  margin-right: 0.5rem;
 }
 .two_column_card .card .card-content {
   padding: 3rem;
@@ -652,6 +659,7 @@ a {
 }
 @media only screen and (min-width: 768px) {
   .two_column_card .card img {
+    display: block;
     max-width: 15rem;
     position: absolute;
     right: 0;
