@@ -8,7 +8,8 @@
 
 @if (addFooterCard != null && addFooterCard.Any())
 {
-    foreach (var footerItem in addFooterCard)
+    <div class="footer_cards">
+    @foreach (var footerItem in addFooterCard)
     {
         var logoContent = footerItem.Content;
         var addCard = logoContent.Value<BlockListModel>("addCards");
@@ -20,12 +21,17 @@
                 var logoItem = cardBlock.Content;
                 var logoIcon = logoItem.Value<IPublishedContent>("logo");
 
-                if (logoIcon != null)
+                <div class="text-card">
+                @if (logoIcon != null)
                 {
-                    <img src="@logoIcon.Url()" alt="Footer Logo" />
+                    
+                        <img src="@logoIcon.Url()" alt="Footer Logo" />
+                   
                 }
                 @Html.Raw(logoItem.Value("description"))
+                 </div>
             }
         }
     }
+    </div>
 }

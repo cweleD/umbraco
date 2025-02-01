@@ -173,9 +173,9 @@
     position: relative;
     margin: 5rem 0;
     padding: 1rem 0;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 70% 0;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: 70% 0 !important;
     border-radius: 12px;
 
   img {

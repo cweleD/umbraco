@@ -516,9 +516,9 @@ a {
   position: relative;
   margin: 5rem 0;
   padding: 1rem 0;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 70% 0;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: 70% 0 !important;
   border-radius: 12px;
 }
 .full-card img {
@@ -907,6 +907,119 @@ a {
 
 .swiper-pagination-bullet {
   background-color: white !important;
+}
+
+footer {
+  background: linear-gradient(45deg, #0054B7, #08A3D1);
+}
+footer .social_icons_holder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-top: 5rem;
+}
+footer .social_icons_holder p {
+  font-size: 38px;
+  line-height: 38px;
+}
+footer .social_icons_holder p span {
+  color: var(--primary);
+  display: block;
+}
+footer .social_icons_holder .social_icons span {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  background: #0054B7;
+  border-radius: 50%;
+}
+footer .footer_links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 11px;
+  text-transform: uppercase;
+  padding: 2rem 0;
+}
+footer .footer_links li {
+  position: relative;
+  pointer-events: all;
+  cursor: pointer;
+}
+footer .footer_links li::after {
+  content: "|";
+  position: absolute;
+  right: -50%;
+  opacity: 0.2;
+}
+footer .footer_links li:last-child::after {
+  display: none;
+}
+footer .footer_links li:is(:hover, :focus, :active) {
+  color: var(--primary);
+}
+footer .logo_holder {
+  display: flex;
+  justify-content: space-between;
+}
+footer .logo_holder .logoItem img {
+  max-width: 8rem;
+  width: 100%;
+  height: auto;
+}
+footer .copyright {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  align-items: center;
+  padding: 1rem 0;
+}
+footer .copyright span:last-child {
+  font-size: 18px;
+  text-transform: uppercase;
+  white-space: wrap;
+}
+footer .footer_cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding-bottom: 5rem;
+}
+footer .footer_cards .text-card {
+  position: relative;
+  justify-content: center;
+  padding: 3rem;
+  padding: 3rem;
+  text-align: center;
+  display: block;
+}
+footer .footer_cards .text-card:after {
+  content: "";
+  background: #fff;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  display: block;
+  left: 0;
+  right: 0;
+  border-radius: 12px;
+}
+footer .footer_cards .text-card p, footer .footer_cards .text-card img {
+  text-align: center;
+  margin: 1rem auto;
+  font-size: 14px;
+}
+footer .footer_banner {
+  height: 53px;
+  background-color: #121627;
+  width: 100%;
 }
 
 .banner {
