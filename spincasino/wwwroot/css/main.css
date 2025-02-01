@@ -374,6 +374,10 @@ a {
 .results-section {
   padding: 2rem 0;
 }
+.results-section h3 {
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+}
 
 .card-holder {
   display: flex;
@@ -394,6 +398,11 @@ a {
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
+@media only screen and (max-width: 767px) {
+  .main-container {
+    display: block;
+  }
+}
 .main-container .highlight-section {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -401,8 +410,18 @@ a {
   width: 100%;
   margin: auto;
 }
+@media only screen and (max-width: 767px) {
+  .main-container .highlight-section {
+    grid-template-columns: 1fr;
+  }
+}
 .main-container .highlight-section .highlight-right {
   display: flex;
+}
+@media only screen and (max-width: 767px) {
+  .main-container .highlight-section .highlight-right {
+    display: none;
+  }
 }
 .main-container .highlight-section .highlight-right .highlight-card {
   display: flex;
@@ -470,7 +489,15 @@ a {
 }
 
 .casino-container {
-  padding: 8rem 0;
+  padding: 6rem 0;
+}
+@media only screen and (max-width: 767px) {
+  .casino-container {
+    padding-top: 2rem;
+  }
+}
+.casino-container h3 {
+  padding: 2rem 0;
 }
 .casino-container .games-section {
   display: flex;
@@ -479,6 +506,11 @@ a {
   background: linear-gradient(45deg, #079fcf, #3cd9cd);
   padding: 1rem 0;
   border-radius: 8px;
+}
+@media only screen and (max-width: 767px) {
+  .casino-container .games-section {
+    margin-top: 2rem;
+  }
 }
 .casino-container .games-section .game-card {
   color: white;
@@ -519,6 +551,17 @@ a {
   overflow: auto !important;
   padding: 8rem 0;
 }
+.simple-swiper-container h3 {
+  padding: 2rem 0;
+}
+@media only screen and (max-width: 767px) {
+  .simple-swiper-container {
+    padding: 2rem 0 4rem;
+  }
+}
+.simple-swiper-container .swiper-slide {
+  width: auto !important;
+}
 
 /* Full Bg Card Styling known as CTA */
 .full-card {
@@ -553,10 +596,20 @@ a {
   margin: 1rem 0 2.5rem;
   text-transform: uppercase;
 }
+@media only screen and (max-width: 767px) {
+  .full-card .card-content p {
+    margin: 1rem 0 9rem;
+  }
+}
 
 /* two_column_card Styling  */
 .two_column_card .col-md-6:first-child .card {
   background: #fff;
+}
+@media only screen and (max-width: 767px) {
+  .two_column_card .col-md-6:first-child .card {
+    margin-bottom: 2rem;
+  }
 }
 .two_column_card .col-md-6:first-child .card .new-badge {
   background: linear-gradient(45deg, #079fcf, #3cd9cd);
@@ -595,10 +648,15 @@ a {
   text-transform: uppercase;
 }
 .two_column_card .card img {
-  max-width: 15rem;
-  position: absolute;
-  right: 0;
-  bottom: 0;
+  display: none;
+}
+@media only screen and (min-width: 768px) {
+  .two_column_card .card img {
+    max-width: 15rem;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
 }
 
 .search-bar {
@@ -626,7 +684,7 @@ a {
 }
 .search-bar .custom-select .select-filter {
   position: absolute;
-  right: 0;
+  right: 1rem;
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;

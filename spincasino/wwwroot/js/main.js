@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const swiperSimple = new Swiper(".simple-swiper-container", {
     loop: true,
-    slidesPerView: 5,
+    slidesPerView: "auto",
     spaceBetween: 10,
     centeredSlides: true,
     grabCursor: true,
