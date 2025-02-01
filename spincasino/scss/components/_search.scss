@@ -83,6 +83,8 @@
         font-weight: 700;
         width: 100%;
         justify-content: space-around;
+        pointer-events: all;
+        cursor: pointer;
 
        /* span:before {
             content: "|";
@@ -91,9 +93,9 @@
 
         &.active {
             background: linear-gradient(145deg, #0047B9, #0798CD, #FFCE00);
-            -webkit-box-shadow: 2px 8px 16px 0px rgba(0, 0, 0, 0.75);
-            -moz-box-shadow: 2px 8px 16px 0px rgba(0, 0, 0, 0.75);
-            box-shadow: 2px 8px 16px 0px rgba(0, 0, 0, 0.75);
+            -webkit-box-shadow: 2px 8px 16px 0px rgba(0, 0, 0, 0.5);
+            -moz-box-shadow: 2px 8px 16px 0px rgba(0, 0, 0, 0.5);
+            box-shadow: 2px 8px 16px 0px rgba(0, 0, 0, 0.5);
         }
     }
 }

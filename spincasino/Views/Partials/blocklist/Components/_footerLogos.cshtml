@@ -1,0 +1,30 @@
+@using Umbraco.Cms.Core.Models
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPublishedContent>
+@using Umbraco.Cms.Core.Models.Blocks
+
+@{
+    var addFooter = Model.Value<BlockListModel>("addFooter");
+}
+
+@if (addFooter != null && addFooter.Any())
+{
+    foreach (var footerItem in addFooter)
+    {
+        var logoContent = footerItem.Content;
+        var addLogo = logoContent.Value<BlockListModel>("addLogo");
+
+        if (addLogo != null && addLogo.Any())
+        {
+            foreach (var logoBlock in addLogo)
+            {
+                var logoItem = logoBlock.Content;
+                var logoIcon = logoItem.Value<IPublishedContent>("logo");
+
+                if (logoIcon != null)
+                {
+                    <img src="@logoIcon.Url()" alt="Footer Logo" />
+                }
+            }
+        }
+    }
+}

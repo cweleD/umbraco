@@ -1,47 +1,28 @@
 @using Umbraco.Cms.Core.Models
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPublishedContent>
 @using Umbraco.Cms.Core.Models.Blocks
-
-@*
 @{
-    if (Model.HasValue("content")){
-        <div class="contentHolder">@(Model.Value<IHtmlString>("content"))</div>
-    }
+   var richtexts = Model.Value<BlockListModel>("content");
 }
-*@
-<div class="content-section">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="content">
-					<span class="lead">Jackpots total</span>
-					<h2>Lorem, ipsum dolor</h2>
-					<div>
-						<h4>JackPot Lounge Casino Welcome Offer - The Appetizer</h4>
-						<p>We bet you have come to JackPot Lounge Casino for an experience filled with flavor, so you
-							may want to take advantage of the (INSERT FINAL $XXX Welcome Offer) exclusive to new
-							players.</p>
-						<p>If you are looking for a classic casino playing experience, then you've come to the right
-							place! JackPot Lounge Casino combines a hint of traditionally brewed online casino glamour
-							with a dazzling dose of modern online gambling adventure! </p>
-						<p>JackPot Lounge welcome offer starts from $XXX + XXX Spins. All players need to do is add a
-							minimum deposit of $XXX to trigger the match offer, coupled with free spins</p>
-						<br />
-						<h4>JackPot Lounge Casino Games - For Players Who Play It Smooth</h4>
-						<p>JackPot Lounge Casino aim to deliver the thrilling online casino gaming experience you have
-							come to expect, and we host a range of the best online casino games to guarantee your
-							playing pleasure. If you are looking to be spoiled with an endless array of online casino
-							games to tantalize your love for gambling fun, Jackpot Lounge Casino games library is casino
-							fun you can BET ON! JackPot Lounge Casino offers a range of online gambling games so wide;
-							you will need to order a few rounds to browse the entire games catalogue.</p>
+@if (richtexts != null && richtexts.Any()) {
+	<div class="content-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="content">
+						@foreach (var richtext in richtexts) {
+							var content = richtext.Content;
+							@Html.Raw(content.Value("description"))
+						}
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
+}
 
+@*
 <span class="section-divider"></span>
 <div class="footer-section">
 	<div class="container">
@@ -111,3 +92,4 @@
 <div class="footer-nav">
 
 </div>
+*@

@@ -23,17 +23,21 @@
 
 <body>
 	@await Html.PartialAsync("~/Views/Partials/_Navigation.cshtml")
-	@RenderBody()
-
+    <main>
+	    @RenderBody()
+    </main>
+    <footer>
+        @await Html.PartialAsync("~/Views/Partials/_footerContent.cshtml")
+    </footer>
 	<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
     const swiperResults = new Swiper('.swiper-results-container', {
-        loop: true,
+        loop: false,
         slidesPerView: 5,
         spaceBetween: 10,
-        centeredSlides: true,
+        centeredSlides: false,
         grabCursor: true,
         navigation: {
             nextEl: '.swiper-button-next',
@@ -85,9 +89,9 @@ document.addEventListener("DOMContentLoaded", function () {
         spaceBetween: 10,
         grabCursor: true,
         loopFillGroupWithBlank: true,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
         },
     });
 

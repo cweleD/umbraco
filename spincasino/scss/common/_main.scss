@@ -1,5 +1,4 @@
 .banner {
-    background-image: linear-gradient(to bottom, #550093 -30%, #0058B8 100%, #08A3D1 100%);
     padding-top: 10rem;
 
     .content h1 {
@@ -54,6 +53,12 @@
     }
 }
 
-body {
-    background-image: linear-gradient(to top, #550093 0%, #0058B8 100%, #08A3D1 100%);
+main {
+    background: linear-gradient(200deg, #550093 -30%, #0058B8 40%, #08A3D1 700%);
+}
+
+.section_divider {
+    display: block;
+    background-image: linear-gradient(to right, #0054B7, #08A0D0, #FFD800);
+    height: 0.393125rem;
 }

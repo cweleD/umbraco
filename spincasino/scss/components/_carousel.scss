@@ -96,14 +96,3 @@
 .swiper-pagination-bullet {
   background-color: white !important;
 }
-
-.swiper-slide {
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  transform: scale(0.8); /* Smaller size for inactive slides */
-  opacity: 0.6; /* Faded appearance for inactive slides */
-}
-
-.swiper-slide-active {
-  transform: scale(1); /* Full size for the active slide */
-  opacity: 1; /* Full opacity for the active slide */
-}

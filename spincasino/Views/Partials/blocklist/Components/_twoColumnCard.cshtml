@@ -8,65 +8,36 @@
 @{
 	if (twoColumnCards != null && twoColumnCards.Any())
 	{
-		<div class="casino-container"> 
-			<div class="results-section">
-				<div class="card-holder container">
-					@foreach (var twoColumnCard in twoColumnCards) {
-						var columnCards = twoColumnCard.Content;
-						var columnCard = columnCards.Value<BlockListModel>("twoColumnCardPicker");
+		<div class="container"> 
+			<div class="row two_column_card">
+				@foreach (var twoColumnCard in twoColumnCards) {
+					var columnCards = twoColumnCard.Content;
+					var columnCard = columnCards.Value<BlockListModel>("twoColumnCardPicker");
 
-						if (columnCard != null && columnCard.Count > 0) {
-							foreach(var cards in columnCard) {
-								var card = cards.Content;
-								var title = card.Value("title");
-								var copy = card.Value("copy");
-								var img = card.Value<IPublishedContent>("image");
-								var tag = card.Value<IPublishedContent>("tag");
-								var label = card.Value("label");
-
-								<div class="highlight-card justify-content-center">
-									<span class="new-badge">@label</span>
+					if (columnCard != null && columnCard.Count > 0) {
+						foreach(var cards in columnCard) {
+							var card = cards.Content;
+							var img = card.Value<IPublishedContent>("image");
+							var tag = card.Value<IPublishedContent>("tag");
+							
+							
+							<div class="col-md-6">
+								<div class="card">
+									<span class="new-badge">@card.Value("label")</span>
 									<div class="card-content">
-										<h3>@title</h3>
-										<p>@copy</p>
+										<h3>@card.Value("title")</h3>
+										@Html.Raw(card.Value("copy"))
 										<a class="btn btn-lg btn-primary" href="@tag.Url()">More</a>
 									</div>
 									@if (img != null) {
-										<img src="@img.Url()" alt="@title" />
+										<img src="@img.Url()" alt="@card.Value("title")tle" />
 									}
 								</div>
-
-							}
+							</div>
 						}
 					}
-				</div>
+				}
 			</div>
 		</div>
 	}
 }
-
-@*
-<div class="casino-container"> 
-	<div class="results-section">
-		<div class="card-holder container">
-			<div class="highlight-card justify-content-center">
-				<span class="new-badge">What's the new update</span>
-				<div class="card-content">
-					<h3>Get your latest offers</h3>
-					<p>On Book of Dead</p>
-					<button>More</button>
-				</div>
-				<img src="images/characters/character-chicken.png" alt="Game character" />
-			</div>
-			<div class="highlight-card blue">
-				<span class="new-badge">New games to play</span>
-				<div class="card-content">
-					<h3>New games for your enjoyment</h3>
-					<p>On Book of Dead</p>
-					<button>More</button>
-				</div>
-				<img src="images/characters/character-allian.png" alt="Game character" />
-			</div>
-		</div>
-	</div>
-</div>*@

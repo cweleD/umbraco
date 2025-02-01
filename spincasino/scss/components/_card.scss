@@ -23,7 +23,7 @@
       display: grid;
       grid-template-columns: 2fr 1fr; 
       gap: 1rem;
-      max-width: 600px;
+      width: 100%;
       margin: auto;
 
       .highlight-right {
@@ -50,6 +50,7 @@
         position: relative;
         display: flex;
         align-items: center;
+        gap: 1rem;
 
         &.small {
 
@@ -106,67 +107,157 @@
     justify-content: space-between;
 }
 
+.casino-container {
+  padding: 8rem 0;
+
 .games-section {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: .55rem;
+    background: linear-gradient(45deg, #079fcf, #3cd9cd);
+    padding: 1rem 0;
+    border-radius: 8px;
 
     .game-card {
       color: white;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: .5rem 1rem;
-      border-bottom: 1px solid #fdfdfd;
+      padding: 0 1rem;
+      border-bottom: none;
+
+      &:last-child {
+        a {
+          border-bottom: 0;
+          padding-bottom: 0;
+        }
+      }
+      a {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        border-bottom: 1px solid #fdfdfd;
+        padding-bottom: .5rem;
+        gap: .5rem;
+
+        .content-holder {
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+          margin-bottom: 0;
+
+          h4 {
+            font-size: 13px;
+            color: #fff;
+          }
+          span {
+            font-size: 9px;
+            color: #000;
+          }
+        }
+      }
     }
   }
-
-  .casino-container {
-    background: linear-gradient(to right, #0F344B, #121627);
-    position: relative;
-  }
-
-  .casino-container:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-  }
-
- .full-card {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
- }
-
- .full-card .content-holder {
-    position: absolute;
-    z-index: 2;
-    padding: 2rem 3rem;
- }
-
- .full-card .bg-image {
-  border-radius: 1rem;
-  -webkit-border-radius: 1rem;
-  -moz-border-radius: 1rem;
-  -ms-border-radius: 1rem;
-  -o-border-radius: 1rem;
 }
-
-.full-card .lead {
-  font-size: 1.4325rem;
-  text-transform: uppercase;
-  font-family: "Bebas Neue", serif;
-  padding: .5rem 0rem 1.5rem;
-}
-
+ 
 .simple-swiper-container {
   overflow: auto !important;
   padding: 8rem 0;
 }
 
+/* Full Bg Card Styling known as CTA */
+.full-card {
+    width: 100%;
+    min-height: 18rem;
+    height: auto;
+    position: relative;
+    margin: 5rem 0;
+    padding: 1rem 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 70% 0;
+    border-radius: 12px;
 
+  img {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: right;
+  }
+  .card-content {
+    padding: 3rem;
+    max-width: 27rem;
+    position: relative;
+
+    p {
+      margin: 1rem 0 2.5rem;
+      text-transform: uppercase;
+    }
+  }
+}
+
+
+/* two_column_card Styling  */
+.two_column_card {
+  .col-md-6 {
+    &:first-child {
+      .card {
+        background: #fff;
+
+        .new-badge {
+          background: linear-gradient(45deg, #079fcf, #3cd9cd);
+          color: #fff;
+        }
+        .card-content, p {
+          color: #000;
+        }
+      }
+    }
+  }
+  
+
+  .card {
+    aspect-ratio: 1.9 / 1;
+    position: relative;
+    object-position: center;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #0054B7, #08A3D1);
+
+    .new-badge {
+      top: 0;
+      color: #121627;
+      text-transform: uppercase;
+      font-size: 11px;
+      right: 0;
+      border-top-right-radius: 12px;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 0;
+      border-top-left-radius: 0;
+      padding: .5rem 1.5rem;
+    }
+
+    .card-content {
+      padding: 3rem;
+      max-width: 26rem;
+
+      p {
+        margin: 1rem 0 2.5rem;
+        text-transform: uppercase;
+      }
+    }
+
+    img {
+      max-width: 15rem;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}

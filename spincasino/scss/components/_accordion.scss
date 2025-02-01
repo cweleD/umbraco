@@ -1,49 +1,69 @@
 .tab-section {
     padding: 5rem;
+    position: relative;
 
-    .tabs-container .tabs-swiper {
-        width: 100%;
-        margin-bottom: 20px; 
-        overflow: hidden;
+    .tabs-container {
+        .tabs-swiper {
+            width: 100%;
+            margin-bottom: 20px; 
+            overflow: hidden;
+
+            .swiper-slide {
+                font-size: 15px;
+                text-transform: uppercase;
+                text-align: center;
+                padding: .75rem 2.5rem;
+                cursor: pointer;
+                border-radius: 5px;
+                display: inline-block; 
+                width: auto;
+                border-radius: 22px;
+                border: 1px solid #fff;
+                font-weight: 700;
+
+                &.swiper-slide-active {
+                    background: linear-gradient(#ffba00, #08A3D1);
+                    border: none;
+                }
+            }
+        }
+
+        .accordion {
+            width: 100%;
+            border: 1px solid #ddd;
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            
+            // I hate auto prefix
+            &.active {
+                border: none;
+                .accordion-header {
+                    background: linear-gradient(#ffba00, #08A3D1);
+                }
+                .accordion-content {
+                    display: block;
+                    border-top: 0;
+                    font-size: 12px;
+                    font-weight: 400;
+                }
+            }
+
+            .accordion-header {
+                font-size: 17px;
+                font-weight: 500;
+                padding: 1.25rem 10rem 1.25rem 2rem;
+                background: linear-gradient(90deg, #0054B7, #08A3D1);
+                cursor: pointer;
+                font-weight: bold;
+                border-radius: 12px;
+            }
+
+            .accordion-content {
+                display: none;
+                padding: 15px;
+                border-top: 1px solid #ddd;
+            }
+        }
     }
 }
  
-
-.tabs-container .swiper-slide {
-    text-align: center;
-    padding: 10px;
-    cursor: pointer;
-    background-image: linear-gradient(#ffba00, #08A3D1);
-    border-radius: 5px;
-    display: inline-block; 
-    width: auto;
-}
-
-.tabs-container .swiper-slide-active {
-    background-color: #007bff;
-    color: white;
-}
-
-.tabs-container .accordion {
-    width: 100%;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.tabs-container .accordion-header {
-    padding: 15px;
-    background-image: linear-gradient(#ffba00, #08A3D1);
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.tabs-container .accordion-content {
-    display: none;
-    padding: 15px;
-    border-top: 1px solid #ddd;
-}
-
-.tabs-container .accordion.active .accordion-content {
-    display: block;
-}
