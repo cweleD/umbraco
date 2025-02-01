@@ -23,5 +23,15 @@ Download or clone the repo. Navigate to the solution or the `spincasino` folder:
 To work with CSS:
 
 1. Run `npm install`
-2. Run `npm run sass` to watch and compile the SASS file changes
+2. Run `npm run sass` to watch and compile the SASS file changes. 
+
+## Issues
+Since everything is coming from umbraco, the SVGs i have on the game node are all white svg, so on the white tag, it won't show anyway. I can't couldn't overwrite the color in it. 
+<img width="1365" alt="Screenshot 2025-02-01 at 18 24 23" src="https://github.com/user-attachments/assets/973bb2f8-21c4-4478-84f1-983035b99932" />
+
+#Navigation links will give an error if you click on it. 
+<img width="344" alt="Screenshot 2025-02-01 at 18 38 11" src="https://github.com/user-attachments/assets/17cf1e45-e8b8-40c7-aa62-d197c2322abd" />
+
+# I kept the name under the card for search purposes on the card. Though the search functionality doesn't have a fallback or text that says game not found. 
+<img width="1489" alt="Screenshot 2025-02-01 at 19 14 39" src="https://github.com/user-attachments/assets/5534f5b6-bee6-4aaa-8a50-298601515cc8" />
 
