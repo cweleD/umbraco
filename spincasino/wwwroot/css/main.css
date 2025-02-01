@@ -768,8 +768,12 @@ a {
 }
 
 .tab-section {
-  padding: 5rem;
   position: relative;
+}
+@media only screen and (min-width: 768px) {
+  .tab-section {
+    padding: 5rem;
+  }
 }
 .tab-section .tabs-container .tabs-swiper {
   width: 100%;
@@ -819,6 +823,11 @@ a {
   cursor: pointer;
   font-weight: bold;
   border-radius: 12px;
+}
+@media only screen and (max-width: 767px) {
+  .tab-section .tabs-container .accordion .accordion-header {
+    padding: 1rem;
+  }
 }
 .tab-section .tabs-container .accordion .accordion-content {
   display: none;
@@ -928,13 +937,29 @@ footer .social_icons_holder {
   width: 100%;
   padding-top: 5rem;
 }
+@media only screen and (max-width: 768px) {
+  footer .social_icons_holder {
+    display: block;
+  }
+}
 footer .social_icons_holder p {
   font-size: 38px;
   line-height: 38px;
 }
+@media only screen and (max-width: 768px) {
+  footer .social_icons_holder p {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+}
 footer .social_icons_holder p span {
   color: var(--primary);
   display: block;
+}
+@media only screen and (max-width: 767px) {
+  footer .social_icons_holder .social_icons {
+    text-align: center;
+  }
 }
 footer .social_icons_holder .social_icons span {
   width: 40px;
@@ -985,6 +1010,13 @@ footer .footer_links li:is(:hover, :focus, :active) {
 footer .logo_holder {
   display: flex;
   justify-content: space-between;
+}
+@media only screen and (max-width: 767px) {
+  footer .logo_holder {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
 }
 footer .logo_holder .logoItem img {
   max-width: 8rem;
