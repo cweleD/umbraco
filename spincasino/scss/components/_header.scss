@@ -224,6 +224,9 @@ header {
                 display: block;
                 left: 20rem;
                 height: 100%;
+                @media only screen and (max-width: 767px) {
+                    left: 14rem;
+                }
 
                 .close {
                     display: flex;

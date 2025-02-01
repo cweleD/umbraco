@@ -60,7 +60,7 @@
       .highlight-card {
         background: linear-gradient(to bottom right, #38b6ff, #ffcc00);
         border-radius: 10px;
-        padding: 0 1rem;
+        padding: 1rem;
         color: white;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         position: relative;
@@ -76,6 +76,7 @@
 
             h3, .h3 {
               font-size: 21px;
+              padding: 0;
             }
           }
 
@@ -142,6 +143,7 @@
     background: linear-gradient(45deg, #079fcf, #3cd9cd);
     padding: 1rem 0;
     border-radius: 8px;
+    justify-content: center;
 
     @media only screen and (max-width: 767px) {
       margin-top: 2rem;

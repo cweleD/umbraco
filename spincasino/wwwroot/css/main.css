@@ -311,6 +311,11 @@ header .sub-menu ul li:is(.active, :hover, :focus):after {
   left: 20rem;
   height: 100%;
 }
+@media only screen and (max-width: 767px) {
+  .sub-nav .top-menu a:is(.active, :hover, :focus) .dropdown, .sub-nav .hs-dropdown:is(.active, :hover, :focus) .dropdown {
+    left: 14rem;
+  }
+}
 .sub-nav .top-menu a:is(.active, :hover, :focus) .dropdown .close, .sub-nav .hs-dropdown:is(.active, :hover, :focus) .dropdown .close {
   display: flex;
   justify-content: end;
@@ -433,7 +438,7 @@ a {
 .main-container .highlight-section .highlight-card {
   background: linear-gradient(to bottom right, #38b6ff, #ffcc00);
   border-radius: 10px;
-  padding: 0 1rem;
+  padding: 1rem;
   color: white;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   position: relative;
@@ -447,6 +452,7 @@ a {
 }
 .main-container .highlight-section .highlight-card.small .card-content h3, .main-container .highlight-section .highlight-card.small .card-content .h3 {
   font-size: 21px;
+  padding: 0;
 }
 .main-container .highlight-section .highlight-card.small img {
   max-width: 5.25rem;
@@ -507,6 +513,7 @@ a {
   background: linear-gradient(45deg, #079fcf, #3cd9cd);
   padding: 1rem 0;
   border-radius: 8px;
+  justify-content: center;
 }
 @media only screen and (max-width: 767px) {
   .casino-container .games-section {
@@ -1186,10 +1193,8 @@ footer .footer_banner {
   text-transform: uppercase;
   padding: 1rem 0 1.75rem;
 }
-@media only screen and (max-width: 767px) {
-  .banner .content .btn {
-    margin: 1rem 0;
-  }
+.banner .content .btn {
+  margin: 1rem 0;
 }
 .banner .banner-image {
   padding-top: 5rem;

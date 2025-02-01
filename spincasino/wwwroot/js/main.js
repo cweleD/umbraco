@@ -111,7 +111,9 @@ document.addEventListener("DOMContentLoaded", function () {
     ?.addEventListener("click", function () {
       const subNav = document.querySelector(".sub-nav");
       if (subNav) {
-        subNav.style.width = subNav.style.width === "20rem" ? "" : "20rem";
+        const isMobile = window.innerWidth <= 768;
+        const newWidth = isMobile ? "15rem" : "20rem";
+        subNav.style.width = subNav.style.width === newWidth ? "" : newWidth;
       }
     });
 
