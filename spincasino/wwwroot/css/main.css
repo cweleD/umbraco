@@ -109,6 +109,11 @@ h3, .h3 {
   line-height: 2.25rem;
 }
 
+h4.title {
+  font-family: "Inter", serif;
+  margin-bottom: 1.5rem;
+}
+
 header {
   position: fixed;
   top: 0;
@@ -1288,4 +1293,31 @@ main {
 
 .two_column_card {
   margin-bottom: 4rem;
+}
+
+.sub_content {
+  display: block;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 25px;
+}
+.sub_content p {
+  margin: 1rem;
+}
+.sub_content h3 {
+  font-size: 57px;
+  margin-bottom: 3rem;
+  line-height: 1;
+}
+@media only screen and (max-width: 767px) {
+  .sub_content h3 {
+    font-size: 32px;
+  }
+}
+.sub_content .small-section-divider {
+  height: 5px;
+  width: 100%;
+  max-width: 60px;
+  background: linear-gradient(to right, #08A0D0, #FFD800);
+  margin: 0 auto;
 }

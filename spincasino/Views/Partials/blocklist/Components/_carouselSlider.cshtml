@@ -4,13 +4,16 @@
 @{
 	var carouselSlides = Model.Value<BlockListModel>("content");
 }
-
-
 @{
 	if (carouselSlides != null && carouselSlides.Any())
 	{
 		<div class="carousel-section">
 			<div class="container">
+				<div class="sub_content">
+					<div class="small-section-divider"></div>
+					<p class="lead">JACKPOTS TOTALS</p>
+					<h3>€4,000,000</h3>
+            	</div>
 				<div class="carousel-container">
 					<div class="swiper-container">
 						<div class="swiper-wrapper">
