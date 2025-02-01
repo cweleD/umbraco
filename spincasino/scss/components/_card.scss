@@ -48,6 +48,14 @@
         .highlight-card {
           display: flex;
           flex-direction: column;
+
+          &.small {
+            align-items: flex-start;
+            img {
+              width: 100%;
+              max-width: 100%;
+            }
+          }
         }
       }
 
@@ -93,14 +101,46 @@
 
 .new-badge {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 0;
+    right: 0;
     background: white;
-    color: #007bff;
-    padding: 5px 10px;
+    color: #0484C6;
+    padding: .25rem 1rem;
     border-radius: 5px;
     font-size: 12px;
     font-weight: bold;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 5rem;
+    display: flex;
+
+    .icon {
+    display: inline-block;
+    position: relative;
+    margin-right: 0.5rem;
+    }
+}
+
+.new-badge-icon {
+  position: absolute;
+  top: .75rem;
+  right: .75rem;
+  background: var(--primary);
+  color: #fff;
+  padding: .25rem;
+  border-radius: 50%;
+  display: flex;
+}
+
+.new-badge-text {
+  position: absolute;
+  top: .75rem;
+  left: .75rem;
+  background: #3CD9CD;
+  color: #fff;
+  font-size: 10px;
+  padding: .25rem .75rem;
+  border-radius: 18px;
+  display: flex;
 }
 
 .cta-button {

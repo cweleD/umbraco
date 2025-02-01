@@ -27,6 +27,7 @@
                         var img = content.Value<IPublishedContent>("image");
                         var tag = content.Value<IPublishedContent>("tag");
                         var label = content.Value("label");
+                        var tagIcon = tag.Value<IPublishedContent>("icon");
 
                         <div class="highlight-card small">
                             @if (img != null)
@@ -40,7 +41,7 @@
                                     <span>@label</span>
                                 </div>
                             </div>
-                            <div class="new-badge">@tag?.Name</div>
+                            <div class="new-badge"><img src="@tagIcon.Url()" class="icon" />@tag?.Name</div>
                         </div>
                     }
                 }
@@ -55,6 +56,7 @@
                 var thirdImg = thirdContent.Value<IPublishedContent>("image");
                 var thirdTag = thirdContent.Value<IPublishedContent>("tag");
                 var thirdLabel = thirdContent.Value("label");
+                var thirdTagIcon = thirdTag.Value<IPublishedContent>("icon");
 
                 <div class="highlight-card small">
                     @if (thirdImg != null)
@@ -68,7 +70,7 @@
                             <span>@thirdLabel</span>
                         </div>
                     </div>
-                    <div class="new-badge">@thirdTag?.Name</div>
+                    <div class="new-badge"><img src="@thirdTagIcon.Url()" class="icon" />@thirdTag?.Name</div>
                 </div>
             }
         </div>

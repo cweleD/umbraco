@@ -17,6 +17,7 @@
             var labeledBtn = contentItem.Value<BlockListModel>("moreButtons");
             var contentLink = contentItem.Value<BlockListModel>("link");
 
+            @if(link != null) {
             <div class="row">
                 <div class="col-md-12">
                     <div class="row d-flex align-items-center">
@@ -81,6 +82,7 @@
                     }
                 }
             </div>
+            }
         }
     </div>
 }

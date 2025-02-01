@@ -59,7 +59,9 @@
                                         {
                                             var results = searchCard.Content;
                                             var resultsImg = results.Value<IPublishedContent>("image");
+                                            var copy = results.Value("copy");
                                             var tag = results.Value<IPublishedContent>("tag");
+                                            var tagIcon = tag.Value<IPublishedContent>("icon");
 
                                             <div class="card swiper-slide" data-name="@tag.Id" data-category="@tag.Id">
                                                 @if (resultsImg != null)
@@ -69,6 +71,8 @@
                                                 <div class="card-img-overlay">
                                                     <p class="game-title">@results.Value("title")</p>
                                                 </div>
+                                                <div class="new-badge-text">@copy</div>
+                                                <div class="new-badge-icon"><img src="@tagIcon.Url()" class="icon" /></div>
                                             </div>
                                         }
                                     }

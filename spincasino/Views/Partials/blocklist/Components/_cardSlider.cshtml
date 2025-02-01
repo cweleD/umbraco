@@ -26,19 +26,14 @@
 										var img = content.Value<IPublishedContent>("image");
 										var tag = content.Value<IPublishedContent>("tag");
 										var label = content.Value("label");
+										var tagIcon = tag.Value<IPublishedContent>("icon");
 
 										<div class="card swiper-slide">
 											@if (img != null) {
 												<img src="@img.Url()" class="card-img" alt="@title">
 											}
-											@*<div class="card-img-overlay">
-												<div class="card-content">
-													<p>@title</p>
-													<h3>@copy</h3>
-													<span>@label</span>
-												</div>
-												<div class="new-badge">@tag.Name</div>
-											</div> *@
+											<div class="new-badge-text">@copy</div>
+											<div class="new-badge-icon"><img src="@tagIcon.Url()" class="icon" /></div>
 										</div>
 									}
 								}

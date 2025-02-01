@@ -37,10 +37,10 @@ document.addEventListener("DOMContentLoaded", function () {
     slidesPerView: 3,
     centeredSlides: true,
     grabCursor: false,
-    loopFillGroupWithBlank: true,
+    // loopFillGroupWithBlank: true,
     pagination: {
-      //  el: '.swiper-pagination',
-      clickable: true,
+      // el: ".swiper-pagination",
+      //clickable: true,
     },
     navigation: {
       nextEl: ".swiper-button-next",

@@ -25,26 +25,22 @@
 										var copy = cardSlider.Value("copy");
 										var img = cardSlider.Value<IPublishedContent>("image");
 
-										<div class="swiper-slide">
+
+										<div class="card swiper-slide">
 											@if(img != null) {
-												<div class="character-wrapper">
-													<div class="podium">
-														@*<img src="images/characters/PODIUM-SMALLER.png" class="smaller" />
-														<img src="/images/characters/PODIUM-SMALLER.png" class="bigger" />*@
-													</div>
+												@*<div class="character-wrapper">
+													<div class="podium"></div>*@
 													<img src="@img.Url()" alt="@title" />
-												</div>
+												@*</div>*@
 											}
 											
-											<div class="jackpot-text">@title</div>
-											<div class="jackpot-amount">@copy</div>
+											@*<div class="jackpot-text">@title</div>
+											<div class="jackpot-amount">@copy</div>*@
 										</div>
 									}
 								}
 							}
 						</div>
-						@* Pagination *@
-						<div class="swiper-pagination"></div>
 						@* Navigation *@
 						<div class="swiper-button-next"></div>
 						<div class="swiper-button-prev"></div>

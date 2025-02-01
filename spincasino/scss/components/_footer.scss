@@ -64,19 +64,6 @@ footer {
                 width: 100%;
                 padding: 0;
                 text-align: center;
-
-                &::after {
-                    content: "|";
-                    position: absolute;
-                    right: -50%;
-                    opacity: .20;
-                }
-    
-                &:last-child {
-                    &::after {
-                        display: none;
-                    }
-                }
             } 
 
             
